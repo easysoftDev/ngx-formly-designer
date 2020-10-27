@@ -1,6 +1,10 @@
 # ngx-formly-designer
 
->This repo is Fork. The primary objetive is to support Ng8 and ngx-formly 5
+>This repo is Fork. The primary objetive is to 
+
+> * Ng8 support
+> * Ngx-formly 5
+> * Drag and drop support
 
 A formly form to design [Ngx Formly](https://github.com/ngx-formly/ngx-formly) forms.
 
