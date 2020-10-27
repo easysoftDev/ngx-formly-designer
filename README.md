@@ -1,5 +1,7 @@
 # ngx-formly-designer
 
+>This repo is Fork. The primary objetive is to support Ng8 and ngx-formly 5
+
 A formly form to design [Ngx Formly](https://github.com/ngx-formly/ngx-formly) forms.
 
 The current version is basic and intended for use with bootstrap.  Feel welcome to issue feature requests or submit PRs.
