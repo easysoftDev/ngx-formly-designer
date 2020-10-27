@@ -74,7 +74,7 @@ export class FieldEditorComponent implements ControlValueAccessor, OnDestroy, On
     @Input() showType: boolean;
     @Input() showWrappers: boolean;
     @Input() hasContent: boolean;
-    @ViewChild('block') blockElRef: ElementRef;
+    @ViewChild('block', { static: true }) blockElRef: ElementRef;
 
     private readonly subscriptions: Subscription[] = [];
     private valueChangesSubscription: Subscription;
