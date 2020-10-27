@@ -11,16 +11,19 @@
   },
   "homepage": "https://github.com/franzeal/ngx-formly-designer#readme",
   "peerDependencies": {
-    "@angular/common": "^6.0.0",
-    "@angular/core": "^6.0.0",
-    "@angular/forms": "^6.0.0",
-    "@ngx-formly/core": "^4.0.0",
-    "@ngx-formly/bootstrap": "^4.0.0",
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "@angular/forms": "^8.2.14",
+    "@ngx-formly/core": "^5.10.5",
+    "@ngx-formly/bootstrap": "^5.10.5",
     "bootstrap": "^4.0.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "lodash-es": "^4.17.0",
     "popper.js": "^1.12.9",
-    "rxjs": "^6.0.0"
+    "rxjs": "^6.6.3"
+  },
+  "dependencies": {
+    "@angular/cli": "^8.3.29"
   }
 }

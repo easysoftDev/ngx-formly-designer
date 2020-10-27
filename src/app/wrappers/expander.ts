@@ -11,7 +11,7 @@ import { FieldWrapper } from '@ngx-formly/core';
     `
 })
 export class FormlyWrapperExpanderComponent extends FieldWrapper {
-    @ViewChild('fieldComponent', {read: ViewContainerRef}) fieldComponent: ViewContainerRef;
+    @ViewChild('fieldComponent', { static: false }) fieldComponent: ViewContainerRef;
 
     get expanded(): boolean {
         return !this.to || this.to['expanded'] === undefined || this.to['expanded'];
