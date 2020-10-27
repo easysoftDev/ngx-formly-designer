@@ -11,8 +11,9 @@ import { catchError, debounceTime, tap } from 'rxjs/operators';
     template: `
         <formly-designer-field-picker (selected)="onFieldSelected($event)">
         </formly-designer-field-picker>
-        <form novalidate [formGroup]="form">
-            <formly-form [options]="options" [model]="model" [form]="form" [fields]="fields">
+        <form novalidate class="grid-stack" >
+            <!--Drag and drop support-->
+            <formly-form  [options]="options" [model]="model" [form]="form" [fields]="fields" [dragula]="'VAMPIRES'">
             </formly-form>
         </form>
         <!--<div>
@@ -31,6 +32,33 @@ import { catchError, debounceTime, tap } from 'rxjs/operators';
         formly-designer-wrapper-picker .form-group > .input-group > formly-designer-wrapper-select > select {
             border-radius: .25rem 0 0 .25rem;
             border-right: 0;
+        }
+
+        .gu-mirror {
+          position: fixed !important;
+          margin: 0 !important;
+          z-index: 9999 !important;
+          opacity: 0.8;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+          filter: alpha(opacity=80);
+          pointer-events: none;
+        }
+        /* high-performance display:none; helper */
+        .gu-hide {
+          left: -9999px !important;
+        }
+        /* added to mirrorContainer (default = body) while dragging */
+        .gu-unselectable {
+          -webkit-user-select: none !important;
+          -moz-user-select: none !important;
+          -ms-user-select: none !important;
+          user-select: none !important;
+        }
+        /* added to the source element while its mirror is dragged */
+        .gu-transit {
+          opacity: 0.2;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+          filter: alpha(opacity=20);
         }
     `],
     encapsulation: ViewEncapsulation.None,
@@ -118,4 +146,5 @@ export class FormlyDesignerComponent implements OnDestroy, OnInit {
             }),
             catchError(() => NEVER)).subscribe();
     }
+
 }

@@ -32,6 +32,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "lodash-es": "^4.17.11",
+    "ng2-dragula": "^2.1.1",
     "ngx-formly-tabs": "^5.1.0",
     "popper.js": "^1.14.7",
     "rxjs": "^6.6.3",

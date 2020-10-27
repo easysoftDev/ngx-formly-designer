@@ -15,6 +15,9 @@ import { WrapperPickerComponent } from './components/wrapper-picker';
 import { WrappersPickerComponent } from './components/wrappers-picker';
 import { DecyclePipe } from './pipes/decycle';
 import 'jquery';
+import { DragulaModule } from 'ng2-dragula';
+
+(window as any).global = window;
 
 @NgModule({
     declarations: [
@@ -26,7 +29,6 @@ import 'jquery';
         WrapperSelectComponent,
         WrapperPickerComponent,
         WrappersPickerComponent,
-
         DecyclePipe,
 
         fieldComponents,
@@ -34,9 +36,9 @@ import 'jquery';
     ],
     imports: [
         CommonModule,
+        DragulaModule.forRoot(),
         FormsModule,
         ReactiveFormsModule,
-
         FormlyModule.forChild()
     ],
     exports: [

@@ -214,21 +214,21 @@ export const designerConfig: DesignerConfigOption = {
                 }
             ]
         },
-        {
-            name: 'tabset',
-            fields: []
-        },
-        {
-            name: 'tab',
-            fields: [
-                {
-                    key: 'templateOptions.tabTitle',
-                    type: 'input',
-                    templateOptions: {
-                        label: 'tabTitle'
-                    }
-                }
-            ]
-        }
+        // {
+        //     name: 'tabset',
+        //     fields: []
+        // },
+        // {
+        //     name: 'tab',
+        //     fields: [
+        //         {
+        //             key: 'templateOptions.tabTitle',
+        //             type: 'input',
+        //             templateOptions: {
+        //                 label: 'tabTitle'
+        //             }
+        //         }
+        //     ]
+        // }
     ]
 };

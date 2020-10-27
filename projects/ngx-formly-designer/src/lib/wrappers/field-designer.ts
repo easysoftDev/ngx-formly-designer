@@ -11,7 +11,11 @@ import { timer } from 'rxjs';
 @Component({
     selector: 'formly-designer-field-wrapper',
     template: `
-        <div *ngIf="!editing" class="bg-info text-white control-panel">
+        <div *ngIf="!editing" class="bg-info text-white control-panel" >
+            <!--Drag and drop support-->
+            <label>
+                <i class="fa fa-arrows" aria-hidden="true" title="move"></i>
+            </label>
             <span class="type">{{ type }}</span>
             <div class="btn-group">
                 <button type="button" class="btn" data-toggle="dropdown"
@@ -39,7 +43,7 @@ import { timer } from 'rxjs';
                 <i class="fa fa-times" aria-hidden="true" title="remove"></i>
             </button>
         </div>
-        <div class="content">
+        <div class="content  grid-stack-item" >
             <div class="editor" [hidden]="!editing">
                 <formly-designer-field-editor #editor [hasContent]="true" [showType]="true" [showWrappers]="true" [formControl]="fieldEdit">
                     <div class="footer">
@@ -101,6 +105,33 @@ import { timer } from 'rxjs';
         .footer {
             display: flex;
             justify-content: flex-end;
+        }
+
+        .gu-mirror {
+          position: fixed !important;
+          margin: 0 !important;
+          z-index: 9999 !important;
+          opacity: 0.8;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+          filter: alpha(opacity=80);
+          pointer-events: none;
+        }
+        /* high-performance display:none; helper */
+        .gu-hide {
+          left: -9999px !important;
+        }
+        /* added to mirrorContainer (default = body) while dragging */
+        .gu-unselectable {
+          -webkit-user-select: none !important;
+          -moz-user-select: none !important;
+          -ms-user-select: none !important;
+          user-select: none !important;
+        }
+        /* added to the source element while its mirror is dragged */
+        .gu-transit {
+          opacity: 0.2;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+          filter: alpha(opacity=20);
         }
     `]
 })

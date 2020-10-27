@@ -14,6 +14,7 @@ import { designerConfig } from './designer-config';
 
 import { AppComponent } from './app.component';
 import { ExpanderComponent } from './components/expander.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -28,11 +29,12 @@ import { ExpanderComponent } from './components/expander.component';
         FormsModule,
         ReactiveFormsModule,
 
-        FormlyTabsModule,
+
         FormlyBootstrapModule,
         FormlyModule.forRoot(config),
-
-        FormlyDesignerModule.forRoot(designerConfig)
+        //FormlyTabsModule,
+        FormlyDesignerModule.forRoot(designerConfig),
+        BrowserAnimationsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
