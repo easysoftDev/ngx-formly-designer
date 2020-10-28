@@ -16,6 +16,7 @@ import { timer } from 'rxjs';
             <label>
                 <i class="fa fa-arrows" aria-hidden="true" title="move"></i>
             </label>
+            <span class="keypath" [attr.id]="field.key">{{ field.key }}</span>: 
             <span class="type">{{ type }}</span>
             <div class="btn-group">
                 <button type="button" class="btn" data-toggle="dropdown"

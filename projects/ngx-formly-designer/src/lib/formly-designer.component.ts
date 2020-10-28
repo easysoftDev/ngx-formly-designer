@@ -5,6 +5,7 @@ import { FieldsService } from './fields.service';
 import { FormlyDesignerService } from './formly-designer.service';
 import { merge, NEVER, Subscription, timer } from 'rxjs';
 import { catchError, debounceTime, tap } from 'rxjs/operators';
+import { DragulaService } from 'ng2-dragula';
 
 @Component({
     selector: 'formly-designer',
@@ -13,7 +14,7 @@ import { catchError, debounceTime, tap } from 'rxjs/operators';
         </formly-designer-field-picker>
         <form novalidate class="grid-stack" >
             <!--Drag and drop support-->
-            <formly-form  [options]="options" [model]="model" [form]="form" [fields]="fields" [dragula]="'VAMPIRES'">
+            <formly-form  [options]="options" [model]="model" [form]="form" [fields]="fields" [dragula]="'FIELDS'">
             </formly-form>
         </form>
         <!--<div>
@@ -82,8 +83,30 @@ export class FormlyDesignerComponent implements OnDestroy, OnInit {
     constructor(
         private fieldsService: FieldsService,
         private formBuilder: FormBuilder,
-        private formlyDesignerService: FormlyDesignerService
-    ) { }
+        private formlyDesignerService: FormlyDesignerService,
+        private dragulaService: DragulaService
+    ) {
+
+        this.subscriptions.push(this.dragulaService.drop("FIELDS")
+            .subscribe(({ name, el, target, source, sibling }) => {
+                this.reorder();
+                console.log(el);
+            })
+        );
+    }
+    reorder() {
+        let me = this;
+        setTimeout(()=>{
+            const newConfig: FormlyFieldConfig[] = [];
+            const elements = document.getElementsByClassName('keypath');
+            Array.from(elements).forEach((entry) => {
+                let element = me.fields.filter(f => f.key == entry.id );
+                if (element)
+                    newConfig.push(element[0]);
+            });
+            me.fields = newConfig;
+        }, 300);
+    }
 
     @Input()
     get disabled(): boolean {
