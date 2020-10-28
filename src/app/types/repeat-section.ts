@@ -73,7 +73,6 @@ export class FormlyFieldRepeatSectionComponent extends FieldArrayType implements
             this.formlyFormBuilder.buildForm(form, [this.field.fieldGroup[i]], this.model, this.options);
             this.formControl.insert(i, form.at(0));
         }
-        debugger;
         (<any>this.options).resetModel();
     }
 

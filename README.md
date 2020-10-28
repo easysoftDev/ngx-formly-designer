@@ -1,6 +1,6 @@
 # ngx-formly-designer
 
->This repo is a Fork. The primary objetive is to 
+>This repo is a Fork. New features are: 
 >
 > * Ng8 support
 > * Ngx-formly 5
