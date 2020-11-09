@@ -1,15 +1,15 @@
 {
-  "name": "ngx-formly-designer",
-  "version": "0.0.5",
+  "name": "ngx-formly-designer-v2",
+  "version": "0.0.6",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/franzeal/ngx-formly-designer.git"
+    "url": "git+https://github.com/rlugmania/ngx-formly-designer.git"
   },
   "bugs": {
-    "url": "https://github.com/franzeal/ngx-formly-designer/issues"
+    "url": "https://github.com/rlugmania/ngx-formly-designer/issues"
   },
-  "homepage": "https://github.com/franzeal/ngx-formly-designer#readme",
+  "homepage": "https://github.com/rlugmania/ngx-formly-designer#readme",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",

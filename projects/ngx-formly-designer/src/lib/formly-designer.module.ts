@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FieldEditorComponent } from './components/field-editor';
 import { FieldPickerComponent } from './components/field-picker';
 import { FieldsService } from './fields.service';
-import { FormlyConfig, FormlyForm, FormlyModule } from '@ngx-formly/core';
+import { ConfigOption, FormlyConfig, FormlyForm, FormlyModule } from '@ngx-formly/core';
 import { FormlyDesignerComponent } from './formly-designer.component';
 import { DesignerConfigOption, FormlyDesignerConfig, FORMLY_DESIGNER_CONFIG_TOKEN } from './formly-designer-config';
 import { config, fieldComponents, wrapperComponents } from './config';
@@ -16,8 +16,15 @@ import { WrappersPickerComponent } from './components/wrappers-picker';
 import { DecyclePipe } from './pipes/decycle';
 import 'jquery';
 import { DragulaModule } from 'ng2-dragula';
+import { JavascriptFormlyFieldComponent } from './components/javascript-editor';
 
 (window as any).global = window;
+
+const formlyConfig: ConfigOption = {
+    types: [
+        { name: 'javascripteditor', component: JavascriptFormlyFieldComponent }
+    ]
+}
 
 @NgModule({
     declarations: [
@@ -30,7 +37,7 @@ import { DragulaModule } from 'ng2-dragula';
         WrapperPickerComponent,
         WrappersPickerComponent,
         DecyclePipe,
-
+        JavascriptFormlyFieldComponent,
         fieldComponents,
         wrapperComponents
     ],
@@ -39,7 +46,7 @@ import { DragulaModule } from 'ng2-dragula';
         DragulaModule.forRoot(),
         FormsModule,
         ReactiveFormsModule,
-        FormlyModule.forChild()
+        FormlyModule.forChild(formlyConfig)
     ],
     exports: [
         FormlyDesignerComponent

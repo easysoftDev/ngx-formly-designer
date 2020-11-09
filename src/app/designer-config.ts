@@ -74,6 +74,20 @@ export const designerConfig: DesignerConfigOption = {
                         label: 'required'
                     },
                     defaultValue: false
+                },
+                {
+                    key: 'hideExpression',
+                    type: 'javascripteditor',
+                    templateOptions: {
+                        label: 'hide expression'
+                    }
+                },
+                {
+                    key: 'hooks',
+                    type: 'javascripteditor',
+                    templateOptions: {
+                        label: 'hook'
+                    }
                 }
             ]
         },

@@ -55,7 +55,7 @@ import { catchError, tap } from 'rxjs/operators';
                     <label>child</label>
                     <formly-designer-field-picker (selected)="onFieldSelected($event)"></formly-designer-field-picker>
                 </div>
-                <ng-template #fieldComponent></ng-template>
+                <ng-template #fieldComponent [dragula]="'SUBFIELDS'"></ng-template>
             </div>
         </div>
     `,
