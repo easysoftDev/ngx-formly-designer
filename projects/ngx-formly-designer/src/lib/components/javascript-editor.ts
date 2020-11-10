@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 import CodeFlask from 'codeflask';
 
@@ -10,9 +10,13 @@ import CodeFlask from 'codeflask';
              [formlyAttributes]="field" #container></div>
     `,
     styles: [
+        `.codeflask {
+            width: 90% !important;
+            height: 98px !important;
+          }
         `
-        `
-    ]
+    ],
+    encapsulation: ViewEncapsulation.None
 })
 export class JavascriptFormlyFieldComponent extends FieldType implements AfterViewInit {
 
@@ -29,6 +33,8 @@ export class JavascriptFormlyFieldComponent extends FieldType implements AfterVi
     ngAfterViewInit(): void {
         this.flask = new CodeFlask(this.containerElement.nativeElement, { language: 'js', lineNumbers: true });
         //closure
+        if (this.model[this.field.key.toString()])
+            this.flask.updateCode(this.model[this.field.key.toString()]);
         const that = this;
         this.flask.onUpdate((code) => {
             // do something with code here.

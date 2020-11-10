@@ -5,6 +5,7 @@
 > * Ng8 support
 > * Ngx-formly 5
 > * Drag and drop support
+> * New type: javascripteditor for fields like hideExpressions
 
 A formly form to design [Ngx Formly](https://github.com/ngx-formly/ngx-formly) forms.
 
